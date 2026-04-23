@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Meta Ads Pro Dashboard</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css" />
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+  <div class="app-container">
+    <aside class="sidebar">
+      <div class="logo">Meta Pro</div>
+      <nav>
+        <a href="#" class="active">Dashboard</a>
+        <a href="#">Campaigns</a>
+        <a href="#">Settings</a>
+      </nav>
+    </aside>
+    <main class="main-content">
+      <header class="header">
+        <div class="header-left">
+          <h1>Overview</h1>
+          <span class="timestamp">Last synced: Just now</span>
+        </div>
+        <div class="header-right">
+          <select id="weekSelector"></select>
+        </div>
+      </header>
+
+      <div class="controls-row">
+        <input type="text" id="searchBar" placeholder="Search campaigns, ad sets, ads..." />
+        <select id="statusFilter">
+          <option value="all">All Statuses</option>
+          <option value="active">Active</option>
+          <option value="off">Off</option>
+          <option value="learning">Learning</option>
+        </select>
+        <select id="campaignFilter">
+          <option value="all">All Campaigns</option>
+        </select>
+      </div>
+
+      <div class="kpi-grid">
+        <div class="kpi-card" id="kpi-spend">
+          <div class="kpi-title">Total Spend</div>
+          <div class="kpi-value" id="val-spend">$0</div>
+        </div>
+        <div class="kpi-card" id="kpi-leads">
+          <div class="kpi-title">Total Leads</div>
+          <div class="kpi-value" id="val-leads">0</div>
+        </div>
+        <div class="kpi-card" id="kpi-cpl">
+          <div class="kpi-title">Cost per Lead</div>
+          <div class="kpi-value" id="val-cpl">$0.00</div>
+        </div>
+        <div class="kpi-card" id="kpi-cpm">
+          <div class="kpi-title">CPM</div>
+          <div class="kpi-value" id="val-cpm">$0.00</div>
+        </div>
+        <div class="kpi-card" id="kpi-reach">
+          <div class="kpi-title">Reach</div>
+          <div class="kpi-value" id="val-reach">0</div>
+        </div>
+      </div>
+
+      <div class="charts-row">
+        <div class="chart-container">
+          <h3>Cost per Lead Over Time</h3>
+          <canvas id="cplChart"></canvas>
+        </div>
+        <div class="chart-container">
+          <h3>Campaign Performance</h3>
+          <canvas id="perfChart"></canvas>
+        </div>
+      </div>
+
+      <h3>Campaign Cards</h3>
+      <div class="campaigns-grid" id="campaignsGrid"></div>
+
+      <h3>Ad Performance Table</h3>
+      <div class="table-container">
+        <table id="adsTable">
+          <thead>
+            <tr>
+              <th>Campaign</th>
+              <th>Ad Set</th>
+              <th>Ad</th>
+              <th>Spend</th>
+              <th>Leads</th>
+              <th>CPL</th>
+              <th>CPM</th>
+              <th>Freq</th>
+            </tr>
+          </thead>
+          <tbody id="adsTableBody"></tbody>
+        </table>
+      </div>
+    </main>
+  </div>
+  <script src="data.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
